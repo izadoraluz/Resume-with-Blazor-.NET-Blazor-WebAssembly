@@ -1,0 +1,40 @@
+@page "/linkedin"
+@inject UserController UserController
+
+<h3>Exibição</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Habilidades</th>
+            <th>Experiência</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Items)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Descricao</td>
+                <td>@item.Habilidades</td>
+                <td>@item.Experiencia</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<User> Items;
+
+    protected override void OnInitialized()
+    {
+        Items = InformaçõesUser.GetAll();
+
+        {
+                UserController.Id(1),
+            }
+        };
+    }
+}
